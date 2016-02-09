@@ -19,7 +19,7 @@ frontend = Blueprint('frontend', __name__)
 @frontend.route('/login/openid', methods=['GET', 'POST'])
 @oid.loginhandler
 def login_openid():
-    if current_user.is_authenticated():
+    if current_user.is_authenticate:
         return redirect(url_for('user.index'))
 
     form = OpenIDForm()
@@ -66,7 +66,7 @@ def create_profile():
 def index():
     current_app.logger.debug('debug')
 
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('user.index'))
 
     page = int(request.args.get('page', 1))
