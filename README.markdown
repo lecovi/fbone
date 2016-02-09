@@ -46,17 +46,43 @@ Pre-required:
 - virtualenv
 - apache + mod\_wsgi
 
+Python-dev.
+
+Make sure you have installed in your system `python3-dev` and/or `python-dev`.
+
+    $ sudo apt install python-dev
+
+or
+
+    $ sudo apt install python3-dev
+
+
+
 Clone.
 
     git clone https://github.com/imwilsonxu/fbone.git fbone
 
 virtualenv.
 
+With Fabric:
+
     fab setup
+
+With virtualenvwrapper
+
+    mkvirtualenv -p $(which python3) fbone
 
 Debug.
 
     fab d
+
+Init DB
+
+    $ python manage.py initdb
+
+Run & Testit!
+
+    $ python manage.py run
 
 Open `http://127.0.0.1:5000`, done!
 

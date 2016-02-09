@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from flask.ext.script import Manager
@@ -27,18 +28,18 @@ def initdb():
     db.create_all()
 
     admin = User(
-            name=u'admin',
-            email=u'admin@example.com',
-            password=u'123456',
+            name='bitson',
+            email='bitson@bitson.com.ar',
+            password='bitson',
             role_code=ADMIN,
             status_code=ACTIVE,
             user_detail=UserDetail(
                 sex_code=MALE,
                 age=10,
-                url=u'http://admin.example.com',
+                url='http://bitson.com.ar',
                 deposit=100.00,
-                location=u'Hangzhou',
-                bio=u'admin Guy is ... hmm ... just a admin guy.'))
+                location='Ciudad Autónoma de Buenos Aires',
+                bio='Buby is our admin Guy, he is... hmm... just a admin guy.'))
     db.session.add(admin)
     db.session.commit()
 
