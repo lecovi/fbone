@@ -9,25 +9,25 @@ from flask.ext.login import login_required, current_user
 from .models import User
 
 
-user = Blueprint('user', __name__, url_prefix='/user')
+student = Blueprint('student', __name__, url_prefix='/student')
 
 
-@user.route('/')
+@student.route('/')
 @login_required
 def index():
     if not current_user.is_authenticated:
         abort(403)
-    return render_template('user/index.html', user=current_user)
+    return render_template('student/index.html', user=current_user)
 
 
-@user.route('/<int:user_id>/profile')
-def profile(user_id):
-    user = User.get_by_id(user_id)
-    return render_template('user/profile.html', user=user)
+@student.route('/<int:student_id>/profile')
+def profile(student_id):
+    student = User.get_by_id(student_id)
+    return render_template('student/profile.html', student=student)
 
 
-@user.route('/<int:user_id>/avatar/<path:filename>')
+@student.route('/<int:student_id>/avatar/<path:filename>')
 @login_required
-def avatar(user_id, filename):
-    dir_path = os.path.join(APP.config['UPLOAD_FOLDER'], 'user_%s' % user_id)
+def avatar(student_id, filename):
+    dir_path = os.path.join(APP.config['UPLOAD_FOLDER'], 'student_%s' % student_id)
     return send_from_directory(dir_path, filename, as_attachment=True)

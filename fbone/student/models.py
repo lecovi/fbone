@@ -43,7 +43,7 @@ class Student(BasicModel):
 
 class Subject(BasicModel):
     """
-
+        Represents the whole course.
     """
 
     __tablename__ = 'subjects'
@@ -56,6 +56,9 @@ class Subject(BasicModel):
 
 
 class Lesson(BasicModel):
+    """
+        Represents the daily class.
+    """
 
     __tablename__ = 'lessons'
 
@@ -65,6 +68,9 @@ class Lesson(BasicModel):
 
 
 class Grade(BasicModel):
+    """
+        Students grades.
+    """
 
     __tablename__ = 'grades'
 
@@ -77,6 +83,9 @@ class Grade(BasicModel):
 
 
 class Resource(BasicModel):
+    """
+        Teachers resources
+    """
 
     __tablename__ = 'resources'
 
